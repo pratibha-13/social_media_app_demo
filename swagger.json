@@ -1,0 +1,1429 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "Fleet Managment API doc",
+		"version": "1.0.0",
+		"title": "Property Managment System",
+		"contact": {
+			"email": "santosh.vnd@quytech.com"
+		}
+	},
+	"host": "localhost:3000",
+	"basePath": "",
+	"tags": [
+		{
+			"name": "Auth",
+			"description": "Authentication Apis"
+		},
+		{
+			"name": "Property",
+			"description": "Property Apis"
+		},
+		{
+			"name": "Reservation",
+			"description": "Reservation Apis"
+		}
+	],
+	"schemes": [
+		"http","https"
+	],
+	"securityDefinitions": {
+		"api_key": {
+			"type": "apiKey",
+			"name": "x-access-token",
+			"in": "header"
+		}
+	},
+	"paths": {
+		"/auth/signup": {
+			"post": {
+				"tags": [
+					"Auth"
+				],
+				"summary": "sign-up",
+				"description": "user can sign-up",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "check user in Database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/sign-up"
+					}
+				}],
+				"responses": {}
+			}
+		},
+		"/auth/login": {
+			"post": {
+				"tags": [
+					"Auth"
+				],
+				"summary": "signIn",
+				"description": "user can signIn",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "check user in Database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/sign-in"
+					}
+				}],
+				"responses": {}
+			}
+		},
+		"/properties/propertiesList": {
+			"get": {
+				"tags": [
+					"Property"
+				],
+				"summary": "property list",
+				"description": "view proprties",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [{
+					"name": "page",
+					"in": "query",
+					"type":"number",
+					"required": true,
+					"default":1
+
+				},
+				{
+					"name": "pageSize",
+					"in": "query",
+					"type":"number",
+					"required": true,
+					"default":10
+
+				}
+			],
+				"responses": {}
+			}
+		},
+		"/properties/property/{id}": {
+			"get": {
+				"tags": [
+					"Property"
+				],
+				"summary": "get property by ID",
+				"description": "view property",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [{
+					"name": "id",
+					"in": "path",
+					"required": true,
+					"type":"string"
+				}],
+				"responses": {}
+			}
+		},
+		"/properties/countryList": {
+			"get": {
+				"tags": [
+					"Property"
+				],
+				"summary": "country list",
+				"description": "view countries",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {}
+			}
+		},
+		"/properties/cityList/{id}": {
+			"get": {
+				"tags": [
+					"Property"
+				],
+				"summary": "get city by ID",
+				"description": "view city",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [{
+					"name": "id",
+					"in": "path",
+					"required": true,
+					"type":"string"
+				}],
+				"responses": {}
+			}
+		},
+		"/properties/get-amunity": {
+			"get": {
+				"tags": [
+					"Property"
+				],
+				"summary": "aminity list",
+				"description": "view aminities",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {}
+			}
+		},
+		"/properties/getTags": {
+			"get": {
+				"tags": [
+					"Property"
+				],
+				"summary": "tag list",
+				"description": "view tags",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {}
+			}
+		},
+		"/properties/getCancellationPolicies": {
+			"get": {
+				"tags": [
+					"Property"
+				],
+				"summary": "cancellation policy list",
+				"description": "view cancellation policy",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {}
+			}
+		},
+		"/properties/createTag": {
+			"post": {
+				"tags": [
+					"Property"
+				],
+				"summary": "create tag",
+				"description": "user can create tag",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "check tag in Database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/createTag"
+					}
+				}],
+				"responses": {}
+			}
+		},
+		"/properties/createCancellationPolicy": {
+			"post": {
+				"tags": [
+					"Property"
+				],
+				"summary": "create cancellation policy",
+				"description": "user can create cancellation policy",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "check cancellation policy in Database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/createCancellationPolicy"
+					}
+				}],
+				"responses": {}
+			}
+		},
+		"/properties/create-property": {
+			"post": {
+				"tags": [
+					"Property"
+				],
+				"summary": "create property",
+				"description": "user can create property",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "check cancellation policy in Database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/create-property"
+					}
+				}],
+				"responses": {}
+			}
+		},
+		"/properties/property": {
+			"put": {
+				"tags": [
+					"Property"
+				],
+				"summary": "update property",
+				"description": "user can update property",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [{
+					"name":"id",
+					"in":"path",
+					"description": "check update property in Database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/property"
+					}
+				}],
+				"responses": {}
+			}
+		},
+		"/reservation/getReservationList": {
+			"get": {
+				"tags": [
+					"Reservation"
+				],
+				"summary": "reservation list",
+				"description": "view reservation",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [{
+					"name": "page",
+					"in": "query",
+					"type":"number",
+					"required": true,
+					"default":1
+
+				},
+				{
+					"name": "pageSize",
+					"in": "query",
+					"type":"number",
+					"required": true,
+					"default":10
+
+				}
+			],
+				"responses": {}
+			}
+		},
+		"/reservation/reservation/{id}": {
+			"get": {
+				"tags": [
+					"Reservation"
+				],
+				"summary": "get reservation by ID",
+				"description": "view reservation",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [{
+					"name": "id",
+					"in": "path",
+					"required": true,
+					"type":"string"
+				}],
+				"responses": {}
+			}
+		},
+		"/reservation/reservationDetails/{id}": {
+			"get": {
+				"tags": [
+					"Reservation"
+				],
+				"summary": "get reservation by reservationID",
+				"description": "view reservation",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [{
+					"name": "id",
+					"in": "path",
+					"required": true,
+					"type":"string"
+				}],
+				"responses": {}
+			}
+		},
+		"/reservation/get-propertyForReservation": {
+			"get": {
+				"tags": [
+					"Reservation"
+				],
+				"summary": "property list for reservation",
+				"description": "view property",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {}
+			}
+		},
+		"/reservation/reservation": {
+			"post": {
+				"tags": [
+					"Reservation"
+				],
+				"summary": "create reservation",
+				"description": "user can create reservation",
+				"operationId": "",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [{
+					"name": "Parameters",
+					"in": "body",
+					"description": "check reservation in Database",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/reservation"
+					}
+				}],
+				"responses": {}
+			}
+		}
+    },
+    "definitions": {
+      "sign-up": {
+        "properties": {
+          "name": {
+            "required": ["true"],
+            "type": "string",
+            "example": "user1"
+          },
+          "email": {
+            "required": ["true"],
+            "type": "string",
+            "example": "abc@yopmail.com"
+          },
+          "password": {
+            "required": ["true"],
+            "type": "string",
+            "example": "123456"
+          }
+        }
+      },
+      "sign-in": {
+        "properties": {
+          "email": {
+            "required": ["true"],
+            "type": "string",
+            "example": "abc@yopmail.com"
+          },
+          "password": {
+            "required": ["true"],
+            "type": "string",
+            "example": "123456"
+          }
+        }
+      },
+      "createTag": {
+        "properties": {
+          "newTag": {
+            "required": ["true"],
+            "type": "array",
+            "items": {
+              "minItems": 1,
+              "type": "object",
+              "required": ["name"],
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "createCancellationPolicy": {
+        "properties": {
+          "newPolicyDetails": {
+            "required": ["true"],
+            "type": "object",
+            "properties": {
+              "from": {
+                "required": ["true"],
+                "type": "string",
+                "example": "0"
+              },
+              "to": {
+                "required": ["true"],
+                "type": "string",
+                "example": "10"
+              },
+              "refundPercentage": {
+                "required": ["true"],
+                "type": "string",
+                "example": "10"
+              },
+              "cancellationPolicyName": {
+                "required": ["true"],
+                "type": "string",
+                "example": "The Cancellation Policy"
+              }
+            }
+          }
+        }
+      },
+      "create-property": {
+        "properties": {
+          "propertyDetails": {
+            "required": ["true"],
+            "type": "object",
+            "properties": {
+              "basicInfo": {
+                "required": ["true"],
+                "type": "object",
+                "properties": {
+                  "external_listing_name": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "The Villa"
+                  },
+                  "tags": {
+                    "items": {
+                      "minItems": 1,
+                      "type": "array",
+                      "example": "R56"
+                    }
+                  },
+                  "description": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "The Description"
+                  },
+                  "person_capacity": {
+                    "required": ["true"],
+                    "type": "number",
+                    "example": 5
+                  },
+                  "property_type": {
+                    "required": ["true"],
+                    "type": "number",
+                    "example": 4
+                  },
+                  "number_of_bedrooms": {
+                    "required": ["true"],
+                    "type": "number",
+                    "example": 1
+                  },
+                  "number_of_beds": {
+                    "required": ["true"],
+                    "type": "number",
+                    "example": 4
+                  },
+                  "number_of_bathrooms": {
+                    "required": ["true"],
+                    "type": "number",
+                    "example": 2
+                  },
+                  "number_of_units": {
+                    "required": ["true"],
+                    "type": "number",
+                    "example": 4
+                  }
+                }
+              },
+              "address": {
+                "required": ["true"],
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "street 9,UK"
+                  },
+                  "zipcode": {
+                    "type": "string",
+                    "example": "000000"
+                  },
+                  "city": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "Altmünster"
+                  },
+                  "state": {
+                    "type": "string",
+                    "example": "New York"
+                  },
+                  "country": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "United Kingdom"
+                  },
+                  "street": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "street 9"
+                  },
+                  "country_id": {
+                    "type": "number",
+                    "example": 45
+                  },
+                  "city_id": {
+                    "type": "number",
+                    "example": 55
+                  }
+                }
+              },
+              "additionalInfo": {
+                "required": ["true"],
+                "type": "object",
+                "properties": {
+                  "minimum_nights": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "1"
+                  },
+                  "maximum_nights": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "5"
+                  },
+                  "check_in_time_start": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "10:00"
+                  },
+                  "check_in_time_end": {
+                    "type": "string",
+                    "example": "15:00"
+                  },
+                  "check_out_time": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "06:00"
+                  },
+                  "square_meters": {
+                    "required": ["true"],
+                    "type": "number",
+                    "example": 47
+                  },
+                  "cancellationPolicy": {
+                      "type": "object",
+                      "required": ["true"],
+                      "properties": {
+                        "from": {
+                          "type": "string",
+                          "example": "0"
+                        },
+                        "to": {
+                          "type": "string",
+                          "example": "5"
+                        },
+                        "refundPercentage": {
+                          "type": "string",
+                          "example": "100"
+                        },
+                        "cancellationPolicyName": {
+                          "type": "string",
+                          "example": "The good cancellation policy"
+                        }
+                      }
+                  }
+                }
+              },
+              "licenseInfo": {
+                "required": ["true"],
+                "type": "object",
+                "properties": {
+                  "property_license_number": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "license12345"
+                  },
+                  "property_licence_type": {
+                    "type": "string",
+                    "example": "license12345"
+                  }
+                }
+              },
+              "contactPersonAndInvoicing": {
+                "required": ["true"],
+                "type": "object",
+                "properties": {
+                  "contact_person_name": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "Mark"
+                  },
+                  "contact_person_last_name": {
+                    "type": "string",
+                    "example": "Wood"
+                  },
+                  "phone_number": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "6655445566"
+                  },
+                  "contact_person_email": {
+                    "type": "string",
+                    "example": "mark@yopmail.com"
+                  },
+                  "contact_person_address": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "United Kingdom"
+                  }
+                }
+              },
+              "priceAndFees": {
+                "required": ["true"],
+                "type": "object",
+                "properties": {
+                  "currency": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "GBP"
+                  },
+                  "basePrice": {
+                    "required": ["true"],
+                    "type": "number",
+                    "example": 500
+                  },
+                  "cleaningFee": {
+                    "type": "number",
+                    "example": 100
+                  },
+                  "priceForExtraPerson": {
+                    "type": "number",
+                    "example": 0
+                  },
+                  "refundableDamageDepositFees": {
+                    "type": "number",
+                    "example": 0
+                  },
+                  "monthly_discount": {
+                    "type": "number",
+                    "example": 0
+                  },
+                  "weekly_discount": {
+                    "type": "number",
+                    "example": 0
+                  }
+                }
+              },
+              "media": {
+                "required": ["true"],
+                "type": "array",
+                "items": {
+                  "minItems": 10,
+                  "type": "object",
+                  "properties": {
+                    "uid": {
+                      "type": "string",
+                      "example": "rc-upload-1695897804992-36"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "a.jpg"
+                    },
+                    "url": {
+                      "type": "string",
+                      "example": "https://pms-s3-uploadbucket.s3.eu-west-2.amazonaws.com/edbecc97f66571310a46a94f03a69d7d"
+                    }
+                  }
+                }
+              },
+              "amenities": {
+                "required": ["true"],
+                "type": "array",
+                "items": {
+                  "minItems": 1,
+                  "type": "object",
+                  "properties": {
+                    "compositionRoom": {
+                      "type": "string",
+                      "example": "WC"
+                    },
+                    "compositionRoomID": {
+                      "type": "string",
+                      "example": "53"
+                    },
+                    "amenities": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "AmenityID": {
+                            "type": "string",
+                            "example": "11"
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "Washing Machine"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "bedTypes": {
+                "required": ["true"],
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "room_number": {
+                      "type": "number",
+                      "example": 1
+                    },
+                    "bed_type": {
+                      "type": "string",
+                      "example": "FULLBED"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "property/{id}": {
+        "properties": {
+          "propertyDetails": {
+            "required": ["true"],
+            "type": "object",
+            "properties": {
+              "basicInfo": {
+                "required": ["true"],
+                "type": "object",
+                "properties": {
+                  "external_listing_name": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "The Villa"
+                  },
+                  "tags": {
+                    "items": {
+                      "minItems": 1,
+                      "type": "array",
+                      "example": "R56"
+                    }
+                  },
+                  "description": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "The Description"
+                  },
+                  "person_capacity": {
+                    "required": ["true"],
+                    "type": "number",
+                    "example": "5"
+                  },
+                  "property_type": {
+                    "required": ["true"],
+                    "type": "number",
+                    "example": "4"
+                  },
+                  "number_of_bedrooms": {
+                    "required": ["true"],
+                    "type": "number",
+                    "example": "1"
+                  },
+                  "number_of_beds": {
+                    "required": ["true"],
+                    "type": "number",
+                    "example": "4"
+                  },
+                  "number_of_bathrooms": {
+                    "required": ["true"],
+                    "type": "number",
+                    "example": "2"
+                  },
+                  "number_of_units": {
+                    "required": ["true"],
+                    "type": "number",
+                    "example": "4"
+                  }
+                }
+              },
+              "address": {
+                "required": ["true"],
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "street 9,UK"
+                  },
+                  "zipcode": {
+                    "type": "string",
+                    "example": "000000"
+                  },
+                  "city": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "Altmünster"
+                  },
+                  "state": {
+                    "type": "string",
+                    "example": "New York"
+                  },
+                  "country": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "United Kingdom"
+                  },
+                  "street": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "street 9"
+                  },
+                  "country_id": {
+                    "type": "number",
+                    "example": 45
+                  },
+                  "city_id": {
+                    "type": "number",
+                    "example": 55
+                  }
+                }
+              },
+              "additionalInfo": {
+                "required": ["true"],
+                "type": "object",
+                "properties": {
+                  "minimum_nights": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "1"
+                  },
+                  "maximum_nights": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "5"
+                  },
+                  "check_in_time_start": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "10:00"
+                  },
+                  "check_in_time_end": {
+                    "type": "string",
+                    "example": "15:00"
+                  },
+                  "check_out_time": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "06:00"
+                  },
+                  "square_meters": {
+                    "required": ["true"],
+                    "type": "number",
+                    "example": 47
+                  },
+                  "cancellationPolicy": {
+                    "items": {
+                      "type": "object",
+                      "required": ["true"],
+                      "properties": {
+                        "from": {
+                          "type": "string",
+                          "example": "0"
+                        },
+                        "to": {
+                          "type": "string",
+                          "example": "5"
+                        },
+                        "refundPercentage": {
+                          "type": "string",
+                          "example": "100"
+                        },
+                        "cancellationPolicyName": {
+                          "type": "string",
+                          "example": "The good cancellation policy"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "licenseInfo": {
+                "required": ["true"],
+                "type": "object",
+                "properties": {
+                  "property_license_number": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "license12345"
+                  },
+                  "property_licence_type": {
+                    "type": "string",
+                    "example": "license12345"
+                  }
+                }
+              },
+              "contactPersonAndInvoicing": {
+                "required": ["true"],
+                "type": "object",
+                "properties": {
+                  "contact_person_name": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "Mark"
+                  },
+                  "contact_person_last_name": {
+                    "type": "string",
+                    "example": "Wood"
+                  },
+                  "phone_number": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "6655445566"
+                  },
+                  "contact_person_email": {
+                    "type": "string",
+                    "example": "mark@yopmail.com"
+                  },
+                  "contact_person_address": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "United Kingdom"
+                  }
+                }
+              },
+              "priceAndFees": {
+                "required": ["true"],
+                "type": "object",
+                "properties": {
+                  "currency": {
+                    "required": ["true"],
+                    "type": "string",
+                    "example": "GBP"
+                  },
+                  "basePrice": {
+                    "required": ["true"],
+                    "type": "number",
+                    "example": 500
+                  },
+                  "cleaningFee": {
+                    "type": "number",
+                    "example": 100
+                  },
+                  "priceForExtraPerson": {
+                    "type": "number",
+                    "example": 0
+                  },
+                  "refundableDamageDepositFees": {
+                    "type": "number",
+                    "example": 0
+                  },
+                  "monthly_discount": {
+                    "type": "number",
+                    "example": 0
+                  },
+                  "weekly_discount": {
+                    "type": "number",
+                    "example": 0
+                  }
+                }
+              },
+              "media": {
+                "required": ["true"],
+                "type": "array",
+                "items": {
+                  "minItems": 10,
+                  "type": "object",
+                  "properties": {
+                    "uid": {
+                      "type": "string",
+                      "example": "rc-upload-1695897804992-36"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "a.jpg"
+                    },
+                    "url": {
+                      "type": "string",
+                      "example": "https://pms-s3-uploadbucket.s3.eu-west-2.amazonaws.com/edbecc97f66571310a46a94f03a69d7d"
+                    }
+                  }
+                }
+              },
+              "amenities": {
+                "required": ["true"],
+                "type": "array",
+                "items": {
+                  "minItems": 1,
+                  "type": "object",
+                  "properties": {
+                    "compositionRoom": {
+                      "type": "string",
+                      "example": "WC"
+                    },
+                    "compositionRoomID": {
+                      "type": "string",
+                      "example": "53"
+                    },
+                    "amenities": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "AmenityID": {
+                            "type": "string",
+                            "example": "11"
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "Washing Machine"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "bedTypes": {
+                "required": ["true"],
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "room_number": {
+                      "type": "number",
+                      "example": 1
+                    },
+                    "bed_type": {
+                      "type": "string",
+                      "example": "FULLBED"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "reservation": {
+        "properties": {
+          "guest": {
+            "required": ["true"],
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "example": "Ben"
+              },
+              "firstName": {
+                "required": ["true"],
+                "type": "string",
+                "example": "Ben"
+              },
+              "lastName": {
+                "required": ["true"],
+                "type": "string",
+                "example": "Stroke"
+              },
+              "email": {
+                "required": ["true"],
+                "type": "string",
+                "example": "ben@yopmail.com"
+              },
+              "phone": {
+                "required": ["true"],
+                "type": "string",
+                "example": "8899889988"
+              },
+              "numberOfGuest": {
+                "required": ["true"],
+                "type": "number",
+                "example": 4
+              },
+              "checkInDate": {
+                "required": ["true"],
+                "type": "string",
+                "example": "2023-09-26"
+              },
+              "checkOutDate": {
+                "required": ["true"],
+                "type": "string",
+                "example": "2023-09-28"
+              },
+              "checkInTime": {
+                "required": ["true"],
+                "type": "string",
+                "example": "19:00"
+              },
+              "checkOutTime": {
+                "required": ["true"],
+                "type": "string",
+                "example": "18:00"
+              },
+              "currency": {
+                "required": ["true"],
+                "type": "string",
+                "example": "GBP"
+              },
+              "guestCountry": {
+                "type": "string",
+                "example": "Denmark"
+              },
+              "guestCity": {
+                "type": "string",
+                "example": "Isle of Man"
+              },
+              "guestNote": {
+                "type": "string",
+                "example": "guestNote"
+              },
+              "hostNote": {
+                "type": "string",
+                "example": "hostNote"
+              },
+              "number_of_children": {
+                "type": "number",
+                "example": 1
+              },
+              "number_of_infants": {
+                "type": "number",
+                "example": 1
+              },
+              "number_of_pets": {
+                "type": "number",
+                "example": 1
+              },
+              "rentalAgreement": {
+                "type": "string",
+                "example": "Signed"
+              },
+              "listingID": {
+                "required": ["true"],
+                "type": "number",
+                "example": 3700916
+              },
+              "cancellationPolicy": {
+                  "type": "object",
+                  "required": ["true"],
+                  "properties": {
+                    "from": {
+                      "type": "string",
+                      "example": "0"
+                    },
+                    "to": {
+                      "type": "string",
+                      "example": "5"
+                    },
+                    "refundPercentage": {
+                      "type": "string",
+                      "example": "100"
+                    },
+                    "cancellationPolicyName": {
+                      "type": "string",
+                      "example": "The good cancellation policy"
+                    }
+                  }
+              }
+            },
+            "address": {
+              "required": ["true"],
+              "type": "object",
+              "properties": {
+                "address": {
+                  "required": ["true"],
+                  "type": "string",
+                  "example": "street 9,UK"
+                },
+                "zipcode": {
+                  "type": "string",
+                  "example": "000000"
+                },
+                "city": {
+                  "required": ["true"],
+                  "type": "string",
+                  "example": "Altmünster"
+                },
+                "state": {
+                  "type": "string",
+                  "example": "New York"
+                },
+                "country": {
+                  "required": ["true"],
+                  "type": "string",
+                  "example": "United Kingdom"
+                },
+                "street": {
+                  "required": ["true"],
+                  "type": "string",
+                  "example": "street 9"
+                },
+                "country_id": {
+                  "type": "number",
+                  "example": 45
+                },
+                "city_id": {
+                  "type": "number",
+                  "example": 55
+                }
+              }
+            },
+            "additionalInfo": {
+              "required": ["true"],
+              "type": "object",
+              "properties": {
+                "minimum_nights": {
+                  "required": ["true"],
+                  "type": "string",
+                  "example": "1"
+                },
+                "maximum_nights": {
+                  "required": ["true"],
+                  "type": "string",
+                  "example": "5"
+                },
+                "check_in_time_start": {
+                  "required": ["true"],
+                  "type": "string",
+                  "example": "10:00"
+                },
+                "check_in_time_end": {
+                  "type": "string",
+                  "example": "15:00"
+                },
+                "check_out_time": {
+                  "required": ["true"],
+                  "type": "string",
+                  "example": "06:00"
+                },
+                "square_meters": {
+                  "required": ["true"],
+                  "type": "number",
+                  "example": 47
+                },
+                "cancellationPolicy": {
+                  "items": {
+                    "type": "object",
+                    "required": ["true"],
+                    "properties": {
+                      "from": {
+                        "type": "string",
+                        "example": "0"
+                      },
+                      "to": {
+                        "type": "string",
+                        "example": "5"
+                      },
+                      "refundPercentage": {
+                        "type": "string",
+                        "example": "100"
+                      },
+                      "cancellationPolicyName": {
+                        "type": "string",
+                        "example": "The good cancellation policy"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+		      "doorCode": {
+            "required": ["true"],
+            "type": "object",
+            "properties": {
+              "doorCodeValue": {
+                "type": "string",
+                "example": "value12345"
+              },
+              "doorCodeVendor": {
+                "required": ["true"],
+                "type": "string",
+                "example": "Ben"
+              },
+              "doorCodeInstructions": {
+                "required": ["true"],
+                "type": "string",
+                "example": "Test"
+              }
+            }
+
+          }
+        }
+      }
+    }
+}
