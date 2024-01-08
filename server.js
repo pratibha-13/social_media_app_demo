@@ -15,6 +15,7 @@ require('body-parser-xml')(bodyParser);
 
 const role = require('./role/route')
 const auth = require('./auth/route')
+const user_follow = require('./user_follow/route')
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -50,8 +51,9 @@ app.use((req, res, next)=>{
       console.log(error)
   }
 })
-app.use('/auth', auth)
+app.use('/auth', auth);
 app.use('/role', role);
+app.use('/user_follow', user_follow);
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument, option))
 
 app.listen(PORT, () => console.log(`server running at port ${PORT}`))

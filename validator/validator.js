@@ -13,7 +13,8 @@ const signinValidators = () => [
 ]
 
 const loginValidators = () => [
-  check('email', 'Please enter correct email').isEmail(),
+  check('userName', 'User name is required').notEmpty(),
+  // check('email', 'Please enter correct email').isEmail(),
   check('password', 'Password is required').notEmpty()
 ]
 
